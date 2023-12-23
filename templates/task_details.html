@@ -1,0 +1,7 @@
+{% extends 'home.html' %}
+{% block title %} Task details {% endblock %}
+{% block site %}
+    <h1>Task Details</h1>
+    <p>{{ task }}</p>
+    <a href="{{ url_for('task_update', task_id=task_id) }}">Edit or delete task</a><br><br>
+{% endblock %}

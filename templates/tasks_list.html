@@ -1,0 +1,10 @@
+{% extends 'home.html' %}
+{% block title %} Tasks list {% endblock %}
+{% block site %}
+  <h1>Tasks list:</h1>
+    {% if tasks %}
+	{% for task in tasks %}
+    		<a href="{{ url_for('task_details', task_id=task[0]) }}">{{ task[1] }}</a><br><br>
+	{% endfor %}
+    {% endif %}
+{% endblock %}

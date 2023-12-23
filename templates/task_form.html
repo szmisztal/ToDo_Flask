@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block title %} Task form {% endblock %}
+{% block site %} 
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.task_title.label }}<br>
+            {{ form.task_title() }}
+        </div>
+        <div>
+            {{ form.description.label }}<br>
+            {{ form.description() }}
+        </div>
+        <div>
+            {{ form.done.label }}<br>
+            {{ form.done() }}
+        </div>
+        <button type="submit">Save</button>
+  	{% if task %}
+    		<button type="submit"><a href="{{ url_for('task_delete', task_id = task[0]) }}">Delete</a></button>
+  	{% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} Home {% endblock %}</title>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}   
+    <a href="{{ url_for('home') }}">Homepage</a><br>
+    <a href="{{ url_for('add_task') }}">Add new task</a><br>
+    <a href="{{ url_for('tasks_list') }}">Tasks list</a><br><br>
+    {% block site %} {% endblock %}
+</body>
+</html>
