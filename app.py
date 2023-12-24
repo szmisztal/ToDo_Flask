@@ -26,25 +26,25 @@ def add_task():
         flash("Task was added successfully")
         return redirect(url_for("home"))
 
-@app.route("/tasks_list", methods=["GET"])
+@app.route("/tasks_list", methods = ["GET"])
 def tasks_list():
     tasks = db.get_all_tasks()
     return render_template("tasks_list.html", tasks = tasks)
 
-@app.route("/task/<int:task_id>", methods=["GET"])
+@app.route("/task/<int:task_id>", methods = ["GET"])
 def task_details(task_id):
     task = db.get_one_task(task_id)
     if task[4] == 1:
         done_status = "Yes"
     else:
         done_status = "No"
-    formatted_task = f"Task ID: {task[0]} | Task title: {task[1]} | Task date: {task[2]} " \
-                     f"| Task description: {task[3]} | Task done: {done_status}"
-    return render_template("task_details.html", task = formatted_task, task_id = task[0])
+    return render_template("task_details.html", task = task, done_status = done_status, task_id = task[0])
 
-@app.route("/update_task/<int:task_id>", methods=["GET", "POST"])
+@app.route("/update_task/<int:task_id>", methods = ["GET", "POST"])
 def task_update(task_id):
     task = db.get_one_task(task_id)
+    if task is None:
+        return "Task not found", 404
     form = TaskForm(
         task_title = task[1],
         description = task[3],
@@ -63,6 +63,8 @@ def task_update(task_id):
 @app.route("/delete_task/<int:task_id>", methods = ["GET", "POST"])
 def task_delete(task_id):
     task = db.get_one_task(task_id)
+    if task is None:
+        return "Task not found", 404
     if request.method == "GET":
         return render_template("task_delete.html", task = task, task_id = task[0])
     elif request.method == "POST":
