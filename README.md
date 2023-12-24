@@ -1,33 +1,37 @@
-ToDo Flask App
-Description
-This is a simple ToDo application built using Flask. The app allows users to add, update, delete, and view tasks. Each task can have a title, description, and a done status.
+# ToDo Flask App
 
-Features
-Add Task: Users can add new tasks with a title and an optional description.
-Update Task: Users can modify existing tasks, including changing the title, description, and status.
-Delete Task: Users can remove tasks from the list.
-View Task List: Users can view a list of all tasks available.
-Installation
-Clone the repository:
-bash
-Copy code
-git clone https://github.com/yourusername/ToDo_Flask.git
-Navigate to the project directory:
-bash
-Copy code
-cd ToDo_Flask
-Install the required packages:
-bash
-Copy code
-pip install -r requirements.txt
-Usage
-Run the Flask application:
-bash
-Copy code
-python app.py
-Open a web browser and navigate to http://localhost:5000/ to access the application.
-Use the provided functionalities to manage your tasks.
-Dependencies
-Flask
-SQLite (as the database)
-WTForms (for form handling)
+A simple ToDo application built with Flask.
+
+## Features
+
+- Add tasks with titles and descriptions.
+- Update task details.
+- Delete tasks.
+- View a list of all tasks.
+
+## Requirements
+
+To run this application locally, ensure you have the following installed:
+
+- Python 3.x
+- Flask
+- WTForms
+- SQLite
+
+## Installation and Usage
+
+Follow these steps to get the application up and running:
+
+1. **Clone the repository and navigate to the directory:**
+   ```bash
+   git clone https://github.com/yourusername/todo-flask-app.git
+   cd todo-flask-app
+2. **Install the required Python packages:**
+   ```bash
+   pip install -r requirements.txt
+3. **Run the Flask application:**
+   ```bash
+   python app.py
+4. **Open your web browser and navigate to:**
+    ```bash
+    http://localhost:5000
