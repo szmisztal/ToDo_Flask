@@ -2,6 +2,10 @@
 {% block title %} Task details {% endblock %}
 {% block site %}
     <h1>Task Details</h1>
-    <p>{{ task }}</p>
+    <p>Task ID: {{ task[0] }}</p>
+    <p>Title: {{ task[1] }}</p>
+    <p>Date: {{ task[2] }}</p>
+    <p>Description: {{ task[3] }}</p>
+    <p>Done: {{ done_status }}</p>
     <a href="{{ url_for('task_update', task_id=task_id) }}">Edit or delete task</a><br><br>
 {% endblock %}
